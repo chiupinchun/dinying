@@ -7,7 +7,10 @@ export interface News {
   }
   date: string
   content: string
-  tags: string[]
+  tags: {
+    name: string
+    color: string
+  }[]
   good: number
   collected: number
   comments: string[]

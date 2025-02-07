@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="card">
     <h3>{{ data.title }}</h3>
     <div class="card-body" :style="{ display: isOneLine ? 'flex' : '' }">
       <div class="card-content">
@@ -16,7 +16,7 @@
     </div>
     <div class="card-footer">
       <ul>
-        <li v-for="(tag, index) in data.tags" :key="index">{{ tag }}</li>
+        <li v-for="(tag, index) in data.tags" :key="index" :style="{ backgroundColor: tag.color }">{{ tag.name }}</li>
       </ul>
       <ul>
         <li>點讚 {{ data.good }}</li>
@@ -43,33 +43,55 @@ const isOneLine = computed(() => props.data.imgs.length <= 1)
   border-radius: 100%;
 }
 
-.card-body {
-  .card-content {
-    width: 100%;
+.card {
+  padding: .5rem;
 
-    .author-block {
-      display: flex;
-      align-items: center;
-      gap: 5px;
+  h3 {
+    margin-top: 0;
+  }
 
-      .name {
-        font-weight: bold;
+  .card-body {
+
+    .card-content {
+      width: 100%;
+
+      .author-block {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+
+        .name {
+          font-weight: bold;
+        }
+
+        .date {
+          color: slategray;
+        }
       }
 
-      .date {
-        color: slategray;
+      .article {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
       }
     }
 
-    .article {
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
+    figure {
+      display: flex;
+      margin: 0;
     }
   }
 }
 
+
 .card-footer {
   display: flex;
+  gap: 10px;
+  font-size: 12px;
+
+  ul {
+    display: flex;
+    gap: 5px;
+  }
 }
 </style>

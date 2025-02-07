@@ -13,7 +13,11 @@ const newsCardData: News[] = [
     },
     date: '2025/2/7',
     content: '我想要工作我想要工作我想要工作我想要工作我想要工作我想要工作我想要工作我想要工作我想要工作我想要工作我想要工作我想要工作我想要工作我想要工作我想要工作我想要工作我想要工作我想要工作我想要工作我想要工作我想要工作我想要工作我想要工作我想要工作我想要工作我想要工作我想要工作我想要工作我想要工作我想要工作我想要工作我想要工作我想要工作我想要工作',
-    tags: ['求職', '勵志', '感人'],
+    tags: [
+      { name: '求職', color: 'yellow' },
+      { name: '勵志', color: 'pink' },
+      { name: '感人', color: 'orange' },
+    ],
     good: 231,
     collected: 34,
     comments: ['', '', ''],
@@ -29,7 +33,11 @@ const newsCardData: News[] = [
     },
     date: '2025/2/7',
     content: '我想要工作我想要工作我想要工作我想要工作我想要工作我想要工作我想要工作我想要工作我想要工作我想要工作我想要工作我想要工作我想要工作我想要工作我想要工作我想要工作我想要工作我想要工作我想要工作我想要工作我想要工作我想要工作我想要工作我想要工作我想要工作我想要工作我想要工作我想要工作我想要工作我想要工作我想要工作我想要工作我想要工作我想要工作',
-    tags: ['求職', '勵志', '感人'],
+    tags: [
+      { name: '求職', color: 'yellow' },
+      { name: '勵志', color: 'pink' },
+      { name: '感人', color: 'orange' },
+    ],
     good: 231,
     collected: 34,
     comments: ['', '', ''],
@@ -45,7 +53,20 @@ const newsCardData: News[] = [
 
 <template>
   <Header></Header>
-  <NewsCard v-for="card in newsCardData" :key="card.id" :data="card" />
+  <main>
+    <NewsCard v-for="card in newsCardData" :key="card.id" :data="card" class="news-card" />
+  </main>
 </template>
 
-<style scoped></style>
+<style lang="less" scoped>
+main {
+  background-color: lightgray;
+  min-height: 100vh;
+
+  .news-card {
+    overflow: hidden;
+    margin-bottom: 5px;
+    background-color: white;
+  }
+}
+</style>
